@@ -8,5 +8,6 @@ spec:
     app: fastapi-app
   ports:
     - protocol: TCP
+      port: 80
       targetPort: 10213  # FastAPI 애플리케이션 포트
   type: ClusterIP  # 혹은 필요한 서비스 유형

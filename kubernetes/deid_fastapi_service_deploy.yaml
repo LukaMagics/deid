@@ -33,6 +33,6 @@ spec:
       nodeName: kisa-host02
       containers:
         - name: fastapi-container
-          image: opro1226/deid-fastapi:1.0  # 빌드한 Docker 이미지 이름과 태그
+          image: opro1226/deid-fastapi:1.2  # 빌드한 Docker 이미지 이름과 태그
           ports:
             - containerPort: 10213  # FastAPI 애플리케이션이 사용하는 포트

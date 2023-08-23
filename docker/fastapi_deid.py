@@ -21,7 +21,7 @@ async def masking(file: UploadFile = File(...), code: str = Form(...)):
         raise HTTPException(status_code=400, detail=error_message)
     
     
-    if code not in ["all-masking", "weak", "moderate", "strong"]:
+    if code not in ["weak", "moderate", "strong"]:
         raise HTTPException(status_code=400, detail="Invalid Code Name")
     
     api_version = "deidentification-in-v1"
@@ -100,4 +100,4 @@ async def masking(file: UploadFile = File(...), code: str = Form(...)):
     json_dict
 
     
-    return docs
+    return json_dict

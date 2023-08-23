@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: deid-test
+  name: deid-v1
   namespace: deidentification
 spec:
   type: NodePort
@@ -18,7 +18,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deid-test
+  name: deid-v1
   namespace: deidentification
 spec:
   replicas: 2  # 원하는 파드 수

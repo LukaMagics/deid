@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: deid-test-gateway
+  name: deid-v1
   namespace: deidentification
 spec:
   selector:
@@ -18,7 +18,7 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: deid-test-virtualservice
+  name: deid-v1
   namespace: deidentification
 spec:
   hosts:

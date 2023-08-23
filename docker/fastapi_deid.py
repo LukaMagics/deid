@@ -51,17 +51,6 @@ async def masking(file: UploadFile = File(...), code: str = Form(...)):
                     sentence['new_form'] = Deidentification(form, begin, end, method).process()
 
 
-    # Re-order Json
-    for doc in json_dict['document']:
-        
-        for i in range(len(doc['sentences'])):
-            
-            if 'new_form' in doc['sentences'][i].keys():
-                sentence = doc['sentences'][i]
-                new_order = ['form', 'new_form', 'pid', 'PNE']
-                doc['sentences'][i] = {key: sentence[key] for key in new_order}
-
-
     # Count set, turn, char
     number_of_set = len(json_dict['document'])
     number_of_turn = 0
@@ -95,9 +84,11 @@ async def masking(file: UploadFile = File(...), code: str = Form(...)):
 
 
     # Re-order first depth keys
-    new_order = ['id', 'docmName', 'metadata', 'detection_process', 'deidentification_process', 'deidentification_policy', 'document']
+    new_order = list(json_dict.keys()) 
+    new_order.remove('document')  
+    new_order.append('document')  
+
     json_dict = {key: json_dict[key] for key in new_order}
-    json_dict
 
     
     return json_dict

@@ -29,7 +29,6 @@ async def masking(file: UploadFile = File(...), code: str = Form(...)):
 
     # Set Method
     METHOD_POLICY = set_method_by_code(code)
-    print(METHOD_POLICY)
     
     
     # Apply Deidentification
@@ -42,7 +41,6 @@ async def masking(file: UploadFile = File(...), code: str = Form(...)):
                 begin = PNE['begin']
                 end = PNE['end']
                 label = PNE['label']
-                print(label)
                 method = METHOD_POLICY[label]
                 
                 if "new_form" in sentence.keys():

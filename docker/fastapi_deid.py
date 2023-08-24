@@ -55,11 +55,14 @@ async def masking(file: UploadFile = File(...), code: str = Form(...)):
     number_of_set = len(json_dict['document'])
     number_of_turn = 0
     number_of_char = 0
+    number_of_pne = 0
+    number_of_error = 0
 
     for doc in json_dict['document']:
         number_of_turn += len(doc['sentences'])
         for sentence in doc['sentences']:
             number_of_char += len(sentence['form'])
+            number_of_pne += len(sentence['PNE'])
 
 
     # Record deidentification_process
@@ -69,6 +72,8 @@ async def masking(file: UploadFile = File(...), code: str = Form(...)):
     deidentification_process['number_of_set'] = number_of_set
     deidentification_process['number_of_turn'] = number_of_turn
     deidentification_process['number_of_char'] = number_of_char
+    deidentification_process['number_of_pne'] = number_of_pne
+    deidentification_process['number_of_error'] = number_of_error
 
     json_dict['deidentification_process'] = deidentification_process
 
